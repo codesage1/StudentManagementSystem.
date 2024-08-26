@@ -1,6 +1,7 @@
 package com.myProject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ public class Student extends Person {
 
     // want at max 5 courses,will see later.
     private final List<Course> coursesEnrolled = new ArrayList<>(5);
-    private Map<Course, Double> grades;
+    private final Map<Course, Double> grades = new HashMap<>();
 
     public Student(String name, String id, int age) {
         super(name, id, age);
