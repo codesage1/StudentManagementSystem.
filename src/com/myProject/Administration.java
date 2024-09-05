@@ -1,14 +1,15 @@
 package com.myProject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Administration {
-    private String adminName;
-    private String adminPassword;
-    private String adminId;
-    private List<Course> courseList;
-    private List<Student> studentList;
-    private List<Professor> professorList;
+    private final String adminName;
+    private final String adminPassword;
+    private final String adminId;
+    private final List<Course> courseList = new ArrayList<Course>();
+    private final List<Student> studentList = new ArrayList<Student>();
+    private final List<Professor> professorList = new ArrayList<Professor>();
 
     public Administration(String adminName, String adminPassword, String adminId) {
         this.adminName = adminName;
@@ -17,7 +18,7 @@ public class Administration {
     }
 
     public Administration() {
-        this(null,null,null);
+        this("","","");
     }
 
     public void addStudent(Student student){
@@ -41,7 +42,6 @@ public class Administration {
 
     public void displayAdminDetails() {
         System.out.println("Admin Name: " + adminName);
-        System.out.println("Admin Password: " + adminPassword);
         System.out.println("Admin Id: " + adminId);
     }
 }

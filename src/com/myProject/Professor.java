@@ -1,5 +1,6 @@
 package com.myProject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Professor extends Person {
@@ -8,11 +9,12 @@ public class Professor extends Person {
 
     public Professor(String name, String id, int age) {
         super(name, id, age);
+        this.coursesTeaching = new ArrayList<>();
     }
 
-    public Professor(List<Course> coursesTeaching) {
-        super();
-        this.coursesTeaching.addAll(coursesTeaching);
+    public Professor(String name,String id, int age,List<Course> coursesTeaching) {
+        super(name,id,age);
+        this.coursesTeaching = new ArrayList<>(coursesTeaching);
     }
 
     public void assignCourse(Course course) {

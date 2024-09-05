@@ -6,9 +6,9 @@ public class Person {
     private int age;
 
     public Person(String name, String id, int age) {
-        this.name = name;
-        this.id = id;
-        this.age = age;
+        this.name = name != null ? name : "";
+        this.id = id != null ? id : "";
+        this.age = Math.max(age, 0);
     }
 
     public Person() {
@@ -20,15 +20,15 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name != null ? name : "";
     }
 
     public String getId() {
-        return this.id;
+        return this.id ;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id != null ? id : "";
     }
 
     public int getAge(){

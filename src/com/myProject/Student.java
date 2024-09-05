@@ -16,31 +16,49 @@ public class Student extends Person {
     }
     public Student(String name, String id, int age, List<Course> coursesEnrolled) {
         super(name, id, age);
-        this.coursesEnrolled.addAll(coursesEnrolled);
+        if(coursesEnrolled.size() < 5){
+            this.coursesEnrolled.addAll(coursesEnrolled);
+        } else {
+            throw new IllegalArgumentException("Cannot enroll in more than 5 courses");
+        }
     }
 
     public void enrollCourse(Course course){
-        coursesEnrolled.add(course);
+        if(!coursesEnrolled.contains(course) && !grades.containsKey(course) && coursesEnrolled.size() < 5){
+            coursesEnrolled.add(course);
+        } else {
+            throw new IllegalArgumentException("Cannot enroll in more than 5 courses or already enrolled/completed courses");
+        }
     }
 
     public void addGrade(Course course, Double grade){
-        grades.put(course, grade);
+        if(coursesEnrolled.contains(course))
+            grades.put(course, grade);
+        else System.out.println("Not enrolled course");
     }
     
     public void viewEnrolledCourses(){
-        System.out.println();
+        for(Course course: coursesEnrolled){
+            System.out.println(course);
+        }
     }
 
     public void viewGrades(Student student){
-        System.out.println(this.grades);
+        for(Map.Entry<Course, Double> entry: grades.entrySet()){
+            System.out.println("Course: " + entry.getKey() + " Grade: " + entry.getValue());
+        }
     }
 
     public double calculateAverageGrade(){
         double sum = 0;
+        int count = 0;
+        if(grades.isEmpty()) return 0;
         for(Course course: coursesEnrolled){
-            sum += grades.get(course);
+            Double grade = grades.get(course);
+            sum += grade;
+            count++;
         }
-        return sum / coursesEnrolled.size();
+        return sum / count;
     }
 
     public void displayStudentDetails() {
