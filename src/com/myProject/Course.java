@@ -15,6 +15,11 @@ public class Course {
         this.instructorInCharge = instructorInCharge;
         this.students.addAll(students);
     }
+    public Course(String courseName, String courseCode, Professor instructorInCharge) {
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.instructorInCharge = instructorInCharge;
+    }
 
     public void enrollStudent(Student student) {
         students.add(student);
@@ -31,8 +36,7 @@ public class Course {
         System.out.println("Course Code: " + courseCode);
         System.out.println("Instructor In Charge: " + instructorInCharge.getName());
         for (Student student : students) {
-            System.out.println("Student Name: " + student.getName());
-            System.out.println("Student Id: " + student.getId());
+            System.out.println("Student Name: " + student.getName()+" , Student Id: " + student.getId());
         }
     }
 }

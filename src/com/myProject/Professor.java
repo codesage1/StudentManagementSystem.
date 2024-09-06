@@ -32,5 +32,8 @@ public class Professor extends Person {
     public void displayProfessor() {
         System.out.println("Name: " + getName());
         System.out.println("ID: " + getId());
+        for (Course course : coursesTeaching) {
+            System.out.print("Course: " + course + ", ");
+        }
     }
 }

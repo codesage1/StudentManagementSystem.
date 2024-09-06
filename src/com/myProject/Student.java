@@ -65,5 +65,8 @@ public class Student extends Person {
         System.out.println("Student Name: " + getName());
         System.out.println("Student ID: " + getId());
         System.out.println("Student Age: " + getAge());
+        for(Course course: coursesEnrolled){
+            System.out.print("Courses enrolled " + course + ", ");
+        }
     }
 }
